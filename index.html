@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DataStream — Earn data, redeem eSIM</title>
+<meta name="description" content="DataStream is a Kenya-built app where you earn data credits by completing offers, then redeem them for real eSIM data plans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B1220;
+    --surface: #121B2E;
+    --surface-line: #223047;
+    --text: #EAF0F6;
+    --text-dim: #94A6BD;
+    --teal: #2DD4BF;
+    --amber: #F2B84B;
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.55;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header {
+    padding: 28px 0 12px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .brand-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--teal), #1B8E80);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+
+  .brand-mark svg { width: 15px; height: 15px; }
+
+  .hero {
+    padding: 56px 0 40px;
+    border-bottom: 1px solid var(--surface-line);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 6vw, 3rem);
+    letter-spacing: -0.02em;
+    max-width: 15ch;
+  }
+
+  .hero h1 span { color: var(--teal); }
+
+  .hero p {
+    margin-top: 18px;
+    color: var(--text-dim);
+    font-size: 1.08rem;
+    max-width: 46ch;
+  }
+
+  .status-row {
+    margin-top: 26px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: var(--text-dim);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+
+  section { padding: 44px 0; border-bottom: 1px solid var(--surface-line); }
+  section:last-of-type { border-bottom: none; }
+
+  .eyebrow-free h2 {
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+    max-width: 22ch;
+  }
+
+  .steps {
+    margin-top: 28px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--surface-line);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .step-index {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--teal);
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .step h3 { font-size: 1.02rem; }
+  .step p { margin: 6px 0 0; color: var(--text-dim); font-size: 0.96rem; }
+
+  .facts {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .fact {
+    background: var(--surface);
+    border: 1px solid var(--surface-line);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+
+  .fact .num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--amber);
+  }
+
+  .fact .label { color: var(--text-dim); font-size: 0.88rem; margin-top: 4px; }
+
+  .contact-card {
+    margin-top: 26px;
+    background: var(--surface);
+    border: 1px solid var(--surface-line);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+
+  .contact-card p { color: var(--text-dim); margin: 0 0 16px; }
+
+  .contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--surface-line);
+  }
+
+  .btn-solid { background: var(--teal); color: #06231F; border-color: transparent; }
+
+  footer {
+    padding: 28px 0 40px;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 520px) {
+    .facts { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="brand">
+    <span class="brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 12c3-6 13-6 16 0M4 12c3 6 13 6 16 0" stroke="#06231F" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </span>
+    DataStream
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero" style="border-top:none;">
+    <h1>Data you <span>earn</span>, not just data you buy.</h1>
+    <p>DataStream is a mobile app built in Kenya. Complete simple offers, earn data credits, and redeem them for real eSIM data — no cash required to get started.</p>
+    <div class="status-row">
+      <span class="dot"></span>
+      Currently in Android review — launching soon
+    </div>
+  </section>
+
+  <section class="eyebrow-free">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-index">1</div>
+        <div>
+          <h3>Complete an offer</h3>
+          <p>Surveys, app trials, and sign-ups from our offerwall partners — no purchase needed.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-index">2</div>
+        <div>
+          <h3>Earn data credits</h3>
+          <p>Credits land in your wallet automatically, tracked in megabytes.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-index">3</div>
+        <div>
+          <h3>Redeem for eSIM data</h3>
+          <p>Swap credits for a real eSIM data plan, scanned straight into your phone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="eyebrow-free">
+    <h2>About the project</h2>
+    <div class="facts">
+      <div class="fact"><div class="num">2026</div><div class="label">Founded</div></div>
+      <div class="fact"><div class="num">1</div><div class="label">Person team</div></div>
+      <div class="fact"><div class="num">Nairobi</div><div class="label">Based in Kenya</div></div>
+      <div class="fact"><div class="num">Android</div><div class="label">First platform</div></div>
+    </div>
+  </section>
+
+  <section class="eyebrow-free">
+    <h2>Get in touch</h2>
+    <div class="contact-card">
+      <p>Publisher or offerwall partner? Reach out — happy to share app details, screenshots, or a build link.</p>
+      <div class="contact-links">
+        <a class="btn btn-solid" href="mailto:kevinjah08@gmail.com">Email us</a>
+        <a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="wrap">
+  <span>© 2026 DataStream</span>
+  <span>Built in Kenya</span>
+</footer>
+
+</body>
+</html>
